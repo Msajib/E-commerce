@@ -316,10 +316,10 @@ margin-top: 41px;
 
                                           <td><?php echo ++$i;?></td>
                                         <td><?php echo $order->product_name ?></td>
+                                        <td style="text-align: right"><?php echo $order->total_qty ?></td>
                                         <td><?php echo $order->type ?></td>
-                                        <td><?php echo $order->total_qty ?></td>
-                                        <td><?php echo $order->total_price?></td>
-                                        <td><?php echo $order->total_price*$order->total_qty?></td>
+                                        <td style="text-align: right"><?php echo $order->total_price?></td>
+                                        <td style="text-align: right"><?php echo (double)$order->total_price*$order->total_qty?></td>
                                    
                                    
                                                            
@@ -371,12 +371,28 @@ margin-top: 41px;
                                     <td colspan="1" class="total-line">নগদ জমা:</td>
                                     <td class="total-value"><?php echo $advance_payment;?></td>
                             </tr>
+                            
                                 <tr>
                                     <td colspan="4" class="blank"> </td>
-                                    <td colspan="1" class="total-line ">বাকির পরিমাণ:</td>
-                                    <td class="total-value"><?php echo $due_amount;?></td>
+                                    <?php if($due_amount<0){
+                                   echo '<td colspan="1" class="total-line ">সাবেক:</td>';
+                                    }else{
+                                         echo '<td colspan="1" class="total-line ">বাকির পরিমাণ:</td>';
+                                             }?> 
+                                    <td class="total-value">
+                                        <?php 
+                                        if($due_amount<0)
+                                        {
+                                            $paid=$due_amount*-1;
+                                            echo sprintf("%.2f", $paid);
+                                          
+                                        }  else {
+                                            echo $due_amount; 
+                                        }
+                                       
+                                        ?></td>
                               </tr>
-                                  <?php}?>
+                            
                                 
                             </table>
                             

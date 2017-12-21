@@ -1,0 +1,21 @@
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  visibility: visible; 
+}
+.con{
+    background:#8FBC8F;
+}
+
+.section_1{
+    margin-top: 35px;
+}
+.button{
+    margin-left: 378px;
+    margin-top: 96px;
+}
